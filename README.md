@@ -1,5 +1,5 @@
 # MacOS-Like black&white SDDM theme 
-[README_RU.md]
+[README_RU.md](https://
 
 Black&White minimalistic SDDM theme based on Qt6. This theme inspired by MacOS 26 Tahoe. There is no liquid glass and other trash.
 

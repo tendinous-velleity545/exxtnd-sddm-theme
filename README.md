@@ -33,4 +33,23 @@ sudo cp -r maclike-theme /usr/share/sddm/themes/
 Current=maclike-theme 
 ```
 ---
+#### Structure of this theme
+```
+/usr/share/sddm/themes/maclike-theme/
+├── Main.qml
+├── assets
+│   ├── avatar.png
+│   ├── bg.jpg
+│   ├── power.png
+│   ├── restart.png
+│   ├── session.png
+│   └── suspend.png
+├── components
+│   ├── PasswordField.qml
+│   ├── PowerButtons.qml
+│   └── UserAvatar.qml
+└── theme.conf
+```
+
+---
 Please report me in «issues» if you’ll see some bugs

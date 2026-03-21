@@ -1,6 +1,7 @@
 # MacOS-Like black&white SDDM theme 
 ![showcase](https://github.com/exxtnd/exxtnd-sddm-theme/blob/main/sddmscreen.jpg)
 
+---
 [README_RU.md](https://github.com/exxtnd/exxtnd-sddm-theme/blob/main/README_RU.md) (RU VERSION)
 
 Black&White minimalistic SDDM theme based on Qt6. This theme inspired by MacOS 26 Tahoe. There is no liquid glass and other trash.

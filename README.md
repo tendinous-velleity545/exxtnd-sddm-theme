@@ -4,7 +4,7 @@
 Black&White minimalistic SDDM theme based on Qt6. This theme inspired by MacOS 26 Tahoe. There is no liquid glass and other trash.
 
 ## Features
-* Without unnecessary dependencies of KDE 
+* Without unnecessary dependencies of KDE, you can install it with any DE/WM
 * User's choice when clicking on the avatar
 * Quick access to session management
 * Other familiar functions

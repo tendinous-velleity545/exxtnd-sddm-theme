@@ -1,4 +1,6 @@
 # MacOS-Like black&white SDDM theme 
+![sddmscreen](https://github.com/user-attachments/assets/2244ece3-994e-43de-b3a0-6a56e9d0cee7)
+
 [README_RU.md](https://github.com/exxtnd/exxtnd-sddm-theme/blob/main/README_RU.md) (RU VERSION)
 
 Black&White minimalistic SDDM theme based on Qt6. This theme inspired by MacOS 26 Tahoe. There is no liquid glass and other trash.
@@ -9,10 +11,6 @@ Black&White minimalistic SDDM theme based on Qt6. This theme inspired by MacOS 2
 * User's choice when clicking on the avatar
 * Quick access to session management
 * Other familiar functions
-
-## Screenshot
-![sddmscreen](https://github.com/user-attachments/assets/2244ece3-994e-43de-b3a0-6a56e9d0cee7)
-
 
 
 > for best experience you should download and install [Audiowide font from Google Fonts](https://fonts.google.com/specimen/Audiowide?preview.script=Latn)

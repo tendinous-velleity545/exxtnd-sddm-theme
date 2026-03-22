@@ -5,20 +5,6 @@ import SddmComponents
 import Qt5Compat.GraphicalEffects
 Item {
     id: root
-    MouseArea {
-    id: globalClickCatcher
-    anchors.fill: parent
-    enabled: sessionMenu.visible
-    onClicked: sessionMenu.visible = false
-    z: 999
-    }
-    MouseArea {
-        id: globalClickCatcherUser
-        anchors.fill: parent
-        enabled: userMenu.visible
-        onClicked: userMenu.visible = false
-        z: 999
-    }
     property int currentUserIndex: 0
     property string currentUserName: userModel.data(userModel.index(0, 0), Qt.UserRole + 1) || userModel.lastUser
     property int currentSessionIndex: sessionModel.currentIndex
@@ -26,25 +12,25 @@ Item {
     height: 1080
     // FUNC FOR APPLY CUSTOM FONTS
     property string mainFont: {
-	    var fonts = Qt.fontFamilies()
-	    for (var i = 0; i < fonts.length; i++) { // ⇩ CHANGE FONT HERE TOO
-		  if (fonts[i].toLowerCase().indexOf("Audiowide") !== -1) {
-		  console.log("found font:", fonts[i])
-		  return fonts[i]
+	   var fonts = Qt.fontFamilies()
+	   for (var i = 0; i < fonts.length; i++) { // ⇩ CHANGE FONT HERE TOO
+		 if (fonts[i].toLowerCase().indexOf("Audiowide") !== -1) {
+		 console.log("found font:", fonts[i])
+		 return fonts[i]
 		}
-	    }
-	    console.log("Font not found", config.font || "Sans") //FALLBACK
-	    return config.font || "Sans"
+	   }
+	   console.log("Font not found", config.font || "Sans") //FALLBACK
+	   return config.font || "Sans"
     }
     Image {
         id: background
         anchors.fill: parent
         source: config.background || "assets/bg.jpg" // BACKGROUND IMAGE
-	      fillMode: Image.PreserveAspectCrop
-	      layer.enabled: config.backgroundBlurEnabled === "true"
-	      layer.effect: FastBlur {
-		    radius: parseInt(config.backgroundBlurRadius) || 20
-	  }
+	     fillMode: Image.PreserveAspectCrop
+	     layer.enabled: config.backgroundBlurEnabled === "true"
+	     layer.effect: FastBlur {
+		   radius: parseInt(config.backgroundBlurRadius) || 20
+	 }
   }
  
 // DATE
@@ -54,8 +40,8 @@ Item {
         y: config.dateY || 20
         text: Qt.formatDate(new Date(), config.dateFormat || "ddd, d MMM yyyy") // DATE FORMAT
         font {
-	    family: mainFont
-	    pixelSize: parseInt(config.dateFontSize) || 40 // DATE FONT SIZE
+	   family: mainFont
+	   pixelSize: parseInt(config.dateFontSize) || 40 // DATE FONT SIZE
             bold: true
         }
         color: config.dateColor || "#000000" // DATE FONT COLOR
@@ -70,7 +56,7 @@ Item {
         y: config.timeY || 45
         text: Qt.formatTime(new Date(), config.timeFormat || "hh:mm") // TIME FORMAT
         font {
-	          family: mainFont
+	         family: mainFont
             pixelSize: parseInt(config.timeFontSize) || 220 // TIME FONT SIZE
             bold: false
         }
@@ -86,26 +72,31 @@ Item {
         height: parseInt(config.avatarHeight) || 65 // AVATAR HEIGHT
         anchors.horizontalCenter: parent.horizontalCenter
         y: parent.height - (parseInt(config.passwordFieldHeight) || 45) - height - 20
-	      radius: Math.min(width, height) / 2
-	      color: "transparent"
+	     radius: Math.min(width, height) / 2
+	     color: "transparent"
         Image {
             id: avatarImage
             anchors.fill: parent
             source: {
                 for (var i = 0; i <= 10; i++) {
                     var val = userModel.data(userModel.index(currentUserIndex, 0), Qt.UserRole + i)
-                    if (val && val.toString().match(/\.(png|jpg|jpeg|svg|face|icon)$/i))
+                    if (val && val.toString().match(/\.(png|jpg|jpeg|svg|face|icon)$/i)) {
+                        if (val.toString().indexOf("/usr/share/sddm") !== -1)
+                            continue
+                        if (val.toString().indexOf("/usr/share/pixmaps") !== -1)
+                            continue
                         return val
+                    }
                 }
                 return config.avatarPath || "assets/avatar.png"
             }
-	          fillMode: Image.PreserveAspectCrop
-	          layer.enabled: true
-	          layer.effect: OpacityMask {
-		          maskSource: Rectangle {
-		            width: avatarImage.width
-		            height: avatarImage.height
-		            radius: Math.min(width, height) / 2
+	         fillMode: Image.PreserveAspectCrop
+	         layer.enabled: true
+	         layer.effect: OpacityMask {
+		         maskSource: Rectangle {
+		           width: avatarImage.width
+		           height: avatarImage.height
+		           radius: Math.min(width, height) / 2
               }
             }
         }
@@ -126,7 +117,15 @@ Item {
             color: config.sessionMenuColor || "#000000"
             visible: false
             clip: false
-
+            MouseArea {
+                id: userMenuBackdrop
+                width: root.width * 2
+                height: root.height * 2
+                x: -root.width
+                y: -root.height
+                z: -1
+                onClicked: userMenu.visible = false
+            }
             ListView {
                 id: userListView
                 anchors {
@@ -170,10 +169,10 @@ Item {
         width: parseInt(config.passwordFieldWidth) || 180 // INPUT FIELD WIDTH
         height: parseInt(config.passwordFieldHeight) || 40 //INPUT FIELD HEIGHT
         radius: parseInt(config.passwordFieldRadius) || 10 // INPUT FIELD ROUNDING
-        color: config.passwordFieldColor || "#000000" // INPUT FIELD COLOR
+        color: config.passwordFieldColor || "#d4d4d4" // INPUT FIELD COLOR
         border {
             width: parseInt(config.passwordFieldBorderWidth) || 2 //INPUT FIELD BORDER WIDTH
-            color: config.passwordFieldBorderColor || "#d4d4d4" // INPUT FIELD BORDER COLOR
+            color: config.passwordFieldBorderColor || "#000000" // INPUT FIELD BORDER COLOR
         }
         anchors {
             horizontalCenter: parent.horizontalCenter
@@ -188,45 +187,45 @@ Item {
                 family: mainFont
                 pixelSize: parseInt(config.passwordPlaceholderSize) || 18
             }
-            color: config.passwordPlaceholderColor || "#d4d4d4" // PLACEHOLDER COLOR
+            color: config.passwordPlaceholderColor || "#000000" // PLACEHOLDER COLOR
             visible: passwordText.text.length === 0
         }
-	    Item {
+	   Item {
                 anchors.centerIn: parent
                 width: parent.width - 38
                 height: parent.height
                 clip: true
             TextInput {
                 id: passwordText
-	        anchors.centerIn: parent
+	       anchors.centerIn: parent
                 width: parent.width - 30
                 height: parent.height - -100
                 font {
                     family: mainFont
                     pixelSize: parseInt(config.passwordTextSize) || 31 // PASSWD CHARACTER SIZE
                 }
-                color: config.passwordTextColor || "#d4d4d4" // PASSWD CHARACTER COLOR
+                color: config.passwordTextColor || "#000000" // PASSWD CHARACTER COLOR
                 echoMode: TextInput.Password
-		            passwordCharacter: "◈" // PASSWD CHARACTER
+		           passwordCharacter: "◈" // PASSWD CHARACTER
                 maximumLength: 128
-	              cursorVisible: false
-	              cursorPosition: text.length
+	             cursorVisible: false
+	             cursorPosition: text.length
                 focus: true
                 horizontalAlignment: TextInput.AlignHCenter
                 verticalAlignment: TextInput.AlignVCenter
-	              selectByMouse: false
-	              cursorDelegate: Item {
-	              }
+	             selectByMouse: false
+	             cursorDelegate: Item {
+	             }
                 Keys.onEnterPressed: {
 //                    sddm.login(userModel.lastUser, passwordText.text, sessionModel.currentIndex)
                     sddm.login(userModel.lastUser, passwordText.text, sessionModel.currentIndex)
                 passwordText.text = ""
-	              }
-	              Keys.onReturnPressed: {
+	             }
+	             Keys.onReturnPressed: {
 //                  sddm.login(userModel.lastUser, passwordText.text, sessionModel.currentIndex)
                     sddm.login(currentUserName, passwordText.text, sessionModel.currentIndex)
                     passwordText.text = ""
-	              }
+	             }
             }
         }
     }
@@ -268,6 +267,15 @@ Item {
                 color: config.sessionMenuColor || "#000000" // SESSION MENU BACKGROUND COLOR
                 visible: false
                 clip: true
+                MouseArea {
+                id: sessionMenuBackdrop
+                width: root.width * 2
+                height: root.height * 2
+                x: -root.width
+                y: -root.height
+                z: -1
+                onClicked: sessionMenu.visible = false
+                }
                 ListView {
                     id: sessionListView
                     anchors {

